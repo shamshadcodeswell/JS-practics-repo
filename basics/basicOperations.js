@@ -6,4 +6,5 @@ let negValue = -value;
 
 let x = "2"
 y = ++x
-console.log(y);
+console.log(y); // ++x or x++ can only be applied to a variable or refereence
+
