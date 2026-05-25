@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRACTICEr</title>
+</head>
+<body style="background-color: #212121; color: #fff; font-family: 'Poppins',sans-serif;">
+    <h1 id="h1">
+        Days in a week are :
+    </h1>
+    <ul class="parent">
+        <li class="class">Mon</li>
+        <li class="class">Tues</li>
+        <li class="class">Wed</li>
+        <li class="class">Thurs</li>
+        <li class="class">Friday</li>
+    </ul>
+    
+</body>
+<script>
+    const h1 = document.getElementById("h1");
+    h1.innerHTML= 'All the days in a week are :'
+    h1.style.color="green"
+
+    const weekDays = document.querySelectorAll('.class');
+    for( let i=0; i<weekDays.length; i++){
+        weekDays[i].className = "weekDays"
+        weekDays[i].style.color = "red"
+    }
+    
+    function addDay(dayName) {
+        let newDay = document.createElement("li")
+        newDay.className= "weekend"
+        newDay.appendChild(document.createTextNode(`${dayName}`))
+        let ul = document.body.querySelector('.parent')
+        ul.appendChild(newDay)
+    }
+    addDay('Saturday');
+    addDay('Sunday')
+
+    let weekend = document.querySelectorAll('.weekend')
+    weekend.forEach( item => {
+        item.style.color = "green"
+    });
+
+    let sunday = document.querySelector('li:nth-child(7)')
+    let Funday = document.createElement('li')
+    Funday.appendChild(document.createTextNode('Funday'))
+    Funday.style.color = "green"
+    sunday.replaceWith(Funday)
+
+
+
+</script>
+</html>
