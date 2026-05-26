@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest()
+    // const data
+    xhr.open('GET',requestUrl)   
+    xhr.onreadystatechange = function (){
+       if(xhr.readyState==4){
+         data = JSON.parse(this.responseText)
+        console.log(data)
+        //adding dp
+        const img = document.createElement("img")
+         img.src = data.avatar_url
+         img.alt = "picture of hitesh"
+         document.body.appendChild(img)
+
+         //adding name
+         const name = document.createElement('div')
+         const h1 = document.createElement('h1')
+         h1.appendChild(document.createTextNode(data.login))
+         name.appendChild(h1)
+         document.body.appendChild(name)
+         //adding followers
+
+        //adding followers
+        const followers = document.createElement('div')
+        followers.appendChild(document.createTextNode(`followers are : ${data.followers}`))
+        document.body.appendChild(followers)
+
+       }
+    }
+    xhr.send()
+
+    //card
+    //add photo
+    // const img = document.createElement("img")
+    // img.src = data.avatarurl
+    
+    
+</script>
+</html>
